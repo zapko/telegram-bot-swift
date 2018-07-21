@@ -8,21 +8,26 @@ let package = Package(
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
+            name: "CCurl",
+            targets: ["CCurl"]),
+        .library(
             name: "TelegramBotSDK",
             targets: ["TelegramBotSDK"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(url: "https://github.com/zmeyc/CCurl.git", from: "0.0.0"),
-        .package(url: "https://github.com/IBM-Swift/SwiftyJSON.git", from: "17.0.0")
+        //.package(url: "https://github.com/zmeyc/CCurl.git", from: "0.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
+            name: "CCurl",
+            dependencies: []),
+        .target(
             name: "TelegramBotSDK",
-            dependencies: ["SwiftyJSON"]),
+            dependencies: ["CCurl"]),
         .testTarget(
             name: "TelegramBotSDKTests",
             dependencies: ["TelegramBotSDK"]),
